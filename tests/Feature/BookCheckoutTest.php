@@ -50,7 +50,7 @@ class BookCheckoutTest extends TestCase
     }
 
 
-    public function test_a_book_can_be_checked_in_by_a_signed_in_user()
+    public function test_a_book_can_be_checked_in_by_a_signed_in_user(): void
     {
         $this->withoutExceptionHandling();
 
@@ -70,7 +70,7 @@ class BookCheckoutTest extends TestCase
     }
 
 
-    public function test_only_signed_in_users_can_checkin_a_book()
+    public function test_only_signed_in_users_can_checkin_a_book(): void
     {
         $user = User::factory()->create();
         $book = Book::factory()->create();
@@ -85,7 +85,7 @@ class BookCheckoutTest extends TestCase
     }
 
 
-    public function test_a_404_is_thrown_if_a_book_is_not_checked_out_first()
+    public function test_a_404_is_thrown_if_a_book_is_not_checked_out_first(): void
     {
         $this->withoutExceptionHandling();
         $user = User::factory()->create();

@@ -3,13 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Author;
-use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
 
-    public function store()
+    public function store(): void
     {
-        Author::create(\request()->only(['name', 'dob']));
+        Author::create($this->validateRequest());
     }
+
+
+    /**
+     * @return array
+     */
+    private function validateRequest(): array
+    {
+        return \request()->validate([
+            'name' => 'required',
+            'dob' => 'required'
+        ]);
+    }
+
 }
