@@ -25,6 +25,7 @@ Route::post('/books', [BookController::class, 'store']);
 Route::patch('/books/{book}', [BookController::class, 'update']);
 Route::delete('books/{book}', [BookController::class, 'destroy']);
 
+Route::get('/authors', [AuthorController::class, 'create']);
 Route::post('/authors', [AuthorController::class, 'store']);
 
 Route::post('/checkout/{book}', [CheckoutController::class, 'store'])->middleware('auth');
